@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="IMG/cara.jpg">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Enviar datos a MySQL</title>
+</head>
+<body>
+
+    <div class="container">
+         <section>
+            <h1>GUARDAR VOCABULARI</h1>
+            <P class="ParrafoPrincipal">Introdueix el vocabulari que vols afefir: <button id="openModal">Informació</button></P>
+            
+            <form id="dataForm">
+                <input type="text" id="tema" placeholder="tema" >
+                <input type="text" id="angles" placeholder="anglès" >
+                <input type="text" id="castella" placeholder="castellà" >
+                <input type="text" id="descripcio" placeholder="descripció" >
+                <button type="submit">Enviar</button>
+            </form>
+        
+            
+            <!-- Finestra flotant d'informació -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <h2>Instruccions per un correcte funcionament:</h2>
+                    <p>Per guardar correctament els nous registres, és important incloure tots els elements: Tema, angles, castella i descripció</p>
+                 
+                    
+                </div>
+            </div>
+            
+            <section id="mi-seccion">
+                <nav class="navbar">
+                    <button class="nav-button" id="inici" onclick="inici()">INICI</button>
+                    <button class="nav-button" id="penjat" onclick="penjat()">PENJAT</button>
+                    <button class="nav-button" id="memorama" onclick="memorama()">MEMORAMA</button>
+                    <button class="nav-button" id="perfil" onclick="guardar()">GUARDAR</button>
+                    <button class="nav-button" id="logout" onclick="sortir()">SORTIR</button>
+                </nav>
+            
+            </section>
+        </section>
+    </div>
+
+    <script>
+        // Enviar les dades a traves del formulari
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const tema = document.getElementById('tema').value;
+            const angles = document.getElementById('angles').value;
+            const castella= document.getElementById('castella').value;
+            const descripcio = document.getElementById('descripcio').value;
+
+            const datos = [{tema, angles, castella, descripcio}];
+
+            fetch('http://localhost:3000/api/datos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                // Limpiar el formulario
+                document.getElementById('dataForm').reset();
+            })
+            .catch(error => console.error('Error:', error));
+        });
+        
+
+    </script>
+    <script src="JS/script.js"></script>
+</body>
+</html>

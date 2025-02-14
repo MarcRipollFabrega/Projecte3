@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    <link rel="shortcut icon" href="IMG/cara.jpg">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="container_penjat">
+        <h1>JOC DEL PENJAT</h1>
+        <div id="indicameDisplay"></div>
+        <p id="traduccio"></p>
+        <div id="canvas-container">
+            <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+        </div>
+        <div>
+            <p id="wordDisplay"></p>
+            <input type="text" id="letterInput" maxlength="1" placeholder="Ingresa una letra">
+            <button id="guessButton">Adivina</button>
+        </div>
+        <button id="restartButton" onclick="startGame()">Nova partida</button>
+        <p id="message"></p>
+    </div>
+    <nav class="navbar">
+        <button class="nav-button" id="inici" onclick="inici()">INICI</button>
+        <button class="nav-button" id="penjat" onclick="penjat()">PENJAT</button>
+        <button class="nav-button" id="memorama" onclick="memorama()">MEMORAMA</button>
+        <button class="nav-button" id="perfil" onclick="guardar()">GUARDAR</button>
+        <button class="nav-button" id="logout" onclick="sortir()">SORTIR</button>
+    </nav>
+
+    <script src="JS/Elpenjat.js"></script>
+    <script src="JS/script.js"></script>
+ 
+</body>
+</html>

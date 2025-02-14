@@ -1,0 +1,54 @@
+/* Faig un reset del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Asegurem que el body i HTML ocupi el 100% */
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+/* Estils per la etiqueta section */
+section {
+    position: relative;
+    height: 100%;
+}
+
+/* Imatge de fobs */
+.full-screen-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.full-screen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imatge ocupa tota la pantalla */
+}
+
+/* Barra de progess */
+.progress-bar {
+    position: absolute;
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%); /* Centra la barra de progres */
+    width: 80%; /* Ample de la barra  */
+    height: 10px; /* Altura de l barra */
+    background-color: rgba(255, 255, 255, 0.5); /* Color de forns */
+    border-radius: 5px; /* Redondeja els bordes */
+    overflow: hidden; /* Oculta la barra de progress que sobresurti */
+}
+
+.progress {
+    height: 100%; /* Altura de la barra interna */
+    background-color: #4caf50; /* Color  */
+    width: 0; /* Inicialment esta a 0 */
+    transition: width 0.5s; /* Transició */
+}
